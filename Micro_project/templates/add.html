@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Add Student</title>
+
+    <style>
+
+        body{
+            background-color: #FAF7F0;
+            font-family: Arial;
+        }
+
+        .container{
+            width: 400px;
+            margin: auto;
+            margin-top: 80px;
+            background-color: #F5E6CA;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h1{
+            color: #008080;
+        }
+
+        input{
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        button{
+            background-color: #008080;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 95%;
+        }
+
+        button:hover{
+            background-color: #006666;
+        }
+
+        .error{
+            color: red;
+            font-weight: bold;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        .back-btn{
+            background-color: #555;
+            margin-top: 10px;
+        }
+
+        .back-btn:hover{
+            background-color: #333;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Add Student</h1>
+
+        {% if error %}
+
+            <p class="error">{{ error }}</p>
+
+        {% endif %}
+
+        <form method="POST">
+
+            <input type="text" name="roll" placeholder="Enter Roll Number" >
+
+            <input type="text" name="name" placeholder="Enter Student Name" >
+
+            <input type="text" name="marks" placeholder="Enter Marks">
+
+            <button type="submit">
+                Add Student
+            </button>
+            
+        </form>
+        <a href="/">
+            <button class="back-btn">
+                Back to Home
+            </button>
+        </a>
+    </div>
+</body>
+</html>
