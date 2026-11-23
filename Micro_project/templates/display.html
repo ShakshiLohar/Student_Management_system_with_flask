@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Students</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="card">
+            <h1 class="page-title">Student Records</h1>
+            <p class="subtitle">All student records currently stored in the database.</p>
+
+            {% if students|length == 0 %}
+                <p class="no-data">No Student Records Found</p>
+            {% endif %}
+
+            <div class="records">
+                {% for i in students %}
+                    <div class="student-box">
+                        <p>
+                            <strong>Roll No:</strong> {{ i.roll_no }}<br>
+                            <strong>Name:</strong> {{ i.name }}
+                            
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <a class="back-link" href="/">
+                <span class="btn btn-secondary">Back to Home</span>
+            </a>
+        </section>
+    </main>
+</body>
+</html>

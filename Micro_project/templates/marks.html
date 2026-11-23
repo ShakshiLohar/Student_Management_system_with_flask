@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subject-wise Marks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<main class="page">
+
+    <section class="card">
+
+        <h1 class="page-title">Subject-wise Marks</h1>
+
+        <p class="subtitle">
+            View marks of students for each subject.
+        </p>
+
+        {% if marks %}
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Roll No</th>
+                        <th>Student Name</th>
+                        <th>Subject</th>
+                        <th>Marks</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for mark in marks %}
+
+                    <tr>
+                        <td>{{ mark.roll_no }}</td>
+                        <td>{{ mark.name }}</td>
+                        <td>{{ mark.subject_name }}</td>
+                        <td>{{ mark.marks }}</td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        {% else %}
+
+        <p class="message error">
+            No subject marks found.
+        </p>
+
+        {% endif %}
+
+        <a class="back-link" href="/">
+            <span class="btn btn-secondary">Back to Home</span>
+        </a>
+
+    </section>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subject Management</title>
+
+    <link rel="icon" type="image/png"
+          href="{{ url_for('static', filename='logo.png') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<main class="page">
+
+    <section class="card">
+
+        <h1 class="page-title">Subject Management</h1>
+
+        <p class="subtitle">
+            Manage subjects used in the student result system.
+        </p>
+
+        {% if success %}
+            <p class="message success">{{ success }}</p>
+        {% endif %}
+
+        {% if error %}
+            <p class="message error">{{ error }}</p>
+        {% endif %}
+
+
+        <!-- Add Subject -->
+
+        <h3 class="section-title">Add New Subject</h3>
+
+        <form method="POST" class="result-form">
+
+            <label for="subject_name">Subject Name</label>
+
+            <input
+                type="text"
+                id="subject_name"
+                name="subject_name"
+                placeholder="Enter Subject Name"
+                required
+            >
+
+            <button type="submit" class="btn">
+                Add Subject
+            </button>
+
+        </form>
+
+
+        <!-- Existing Subjects -->
+
+        <h3 class="section-title">Available Subjects</h3>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Subject ID</th>
+                    <th>Subject Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for subject in subjects %}
+
+                <tr>
+                    <td>{{ subject.subject_id }}</td>
+                    <td>{{ subject.subject_name }}</td>
+                    <td>
+                        <a href="/update_subject/{{ subject.subject_id }}" class="btn">
+                            Update
+                        </a>
+
+                        <form method="POST"
+                            action="/delete_subject/{{ subject.subject_id }}"
+                            style="display:inline;">
+                            <button type="submit" class="btn">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+
+        <a class="back-link" href="/">
+            <span class="btn btn-secondary">Back to Home</span>
+        </a>
+
+    </section>
+
+</main>
+
+</body>
+</html>

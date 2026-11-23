@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="card form-card">
+            <h1 class="page-title">Update Student</h1>
+            <p class="subtitle">Update a student's name or marks using their roll number.</p>
+
+            {% if error %}
+                <p class="message error">{{ error }}</p>
+            {% endif %}
+
+            {% if success %}
+                <p class="message success">{{ success }}</p>
+            {% endif %}
+
+            <form action="/update" method="POST">
+                <label for="roll">Roll Number</label>
+                <input id="roll" type="text" name="roll" placeholder="Enter Roll Number">
+
+                <label for="field">Field</label>
+                <input id="field" type="text" name="field" placeholder="Enter name or marks">
+
+                <label for="value">New Value</label>
+                <input id="value" type="text" name="value" placeholder="Enter New Value">
+
+                <button class="btn full" type="submit">Update Student</button>
+            </form>
+
+            <a class="back-link" href="/">
+                <span class="btn btn-secondary">Back to Home</span>
+            </a>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Subject</title>
+
+    <link rel="icon" type="image/png"
+          href="{{ url_for('static', filename='logo.png') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<main class="page">
+
+<section class="card">
+
+    <h1 class="page-title">Update Subject</h1>
+
+    <p class="subtitle">
+        Change the name of the selected subject.
+    </p>
+
+    <form method="POST" class="result-form">
+
+        <label for="subject_name">Subject Name</label>
+
+        <input
+            type="text"
+            id="subject_name"
+            name="subject_name"
+            value="{{ subject.subject_name }}"
+            required
+        >
+
+        <button type="submit" class="btn">
+            Update Subject
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/subjects" class="back-link">
+        <span class="btn btn-secondary">Back to Subjects</span>
+    </a>
+
+</section>
+
+</main>
+
+</body>
+</html>

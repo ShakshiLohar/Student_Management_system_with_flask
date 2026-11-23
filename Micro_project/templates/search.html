@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="card form-card">
+            <h1 class="page-title">Search Student</h1>
+            <p class="subtitle">Find a student using their roll number.</p>
+
+            {% if error %}
+                <p class="message error">{{ error }}</p>
+            {% endif %}
+
+            <form method="POST">
+                <label for="roll">Roll Number</label>
+                <input id="roll" type="text" name="roll" placeholder="Enter Roll Number">
+
+                <button class="btn full" type="submit">Search Student</button>
+            </form>
+
+            {% if student %}
+                <div class="student-box">
+                    <p>
+                        <strong>Roll No:</strong> {{ student.roll_no }}<br>
+                        <strong>Name:</strong> {{ student.name }}<br>
+                        <strong>Marks:</strong> {{ student.marks }}
+                    </p>
+                </div>
+            {% endif %}
+
+            <a class="back-link" href="/">
+                <span class="btn btn-secondary">Back to Home</span>
+            </a>
+        </section>
+    </main>
+</body>
+</html>
